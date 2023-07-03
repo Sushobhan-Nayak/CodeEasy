@@ -17,8 +17,11 @@ class _SpalshState extends State<Spalsh> {
 
   _navigatetohome() async {
     await Future.delayed(const Duration(seconds: 3), () {});
+    if(mounted){
+
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => const Homepage()));
+    }
   }
 
   @override
