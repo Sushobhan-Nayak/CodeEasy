@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/quiz_view/options_view.dart';
+
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
 
@@ -47,6 +48,7 @@ class _MyWidgetState extends State<QuizScreen> with TickerProviderStateMixin {
             child: Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(3),
                   border: Border.all(color: Colors.black, width: 3.0)),
                   //! progress bar is for 20 seconds.....after learning bit more about animation I will try to display number of seconds remaining inside the bar itself
               child: LinearProgressIndicator(
