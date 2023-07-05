@@ -7,6 +7,7 @@ class QuizScreen extends StatefulWidget {
   @override
   State<QuizScreen> createState() => _MyWidgetState();
 }
+
 //!  agar teko ajeeb lge thoda to position  , padding vgrah apne hisaab se krdena....
 class _MyWidgetState extends State<QuizScreen> with TickerProviderStateMixin {
   late AnimationController controller; // for progressbar
@@ -29,7 +30,6 @@ class _MyWidgetState extends State<QuizScreen> with TickerProviderStateMixin {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
@@ -48,9 +48,9 @@ class _MyWidgetState extends State<QuizScreen> with TickerProviderStateMixin {
             child: Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(3),
+                  borderRadius: BorderRadius.circular(3),
                   border: Border.all(color: Colors.black, width: 3.0)),
-                  //! progress bar is for 20 seconds.....after learning bit more about animation I will try to display number of seconds remaining inside the bar itself
+              //! progress bar is for 20 seconds.....after learning bit more about animation I will try to display number of seconds remaining inside the bar itself
               child: LinearProgressIndicator(
                 minHeight: 20,
                 color: Colors.greenAccent,

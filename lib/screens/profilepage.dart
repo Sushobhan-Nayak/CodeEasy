@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:hello_world/login/googlesignin.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -73,7 +75,15 @@ class _ProfilePageState extends State<ProfilePage> {
               const Divider(
                 color: Colors.black,
                 thickness: 0.5,
-              )
+              ),
+              const SizedBox( 
+                height: 80,
+              ),
+              ElevatedButton(onPressed: (){
+                final provider = Provider.of<GoogleSignInProvider>(context,
+                          listen: false);
+                      provider.logout();
+              }, child: const Text('Logout',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),))
             ],
           ),
         ),

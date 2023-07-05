@@ -7,10 +7,12 @@ import 'package:hello_world/login/googlesignin.dart';
 import 'package:hello_world/login/login.dart';
 import 'package:hello_world/screens/navigation.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(const MyApp());
 }
 

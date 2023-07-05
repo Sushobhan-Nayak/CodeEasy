@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:hello_world/screens/article.dart';
 import 'package:hello_world/screens/homescreen.dart';
 import 'package:hello_world/screens/profilepage.dart';
 
@@ -12,13 +13,21 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   int index = 0;
-  final screens = [const HomeScreen(), const ProfilePage()];
+  final screens = [
+    const HomeScreen(),
+    const ArticleScreen(),
+    const ProfilePage()
+  ];
 
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
       const Icon(
         Icons.home,
+        size: 30,
+      ),
+      const Icon(
+        Icons.article,
         size: 30,
       ),
       const Icon(

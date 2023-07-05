@@ -16,35 +16,42 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.black,Colors.blue,Colors.black])),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+                image: AssetImage('assets/images/splash.jpeg'))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(0, 150.0, 0, 0),
-              child: Center(
-                  child: Text('Hey there \nWelcome back.',
-                      style: TextStyle(
-                          fontSize: 35,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold))),
-            ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.fromLTRB(0, 150.0, 0, 0),
+              child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.black,
+                    child: const Text('Hey there \nWelcome back',
+                    textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 35,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold)),
+                  )),
+            ),
+            const SizedBox(height: 107),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: SizedBox(
-                  height: 40,
+                  width: MediaQuery.of(context).size.width*0.95,
+                  height: 65,
                   child: SignInButton(
                     Buttons.Google,
                     mini: false,
                     elevation: 10.0,
                     text: 'Sign in with Google',
                     onPressed: () {
-                      final provider = Provider.of<GoogleSignInProvider>(context,
+                      final provider = Provider.of<GoogleSignInProvider>(
+                          context,
                           listen: false);
                       provider.googleLogin();
                     },
