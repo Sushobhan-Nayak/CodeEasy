@@ -12,39 +12,53 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const WebView(
-                          url:
-                              "https://www.geeksforgeeks.org/array-data-structure/",
-                        )));
-              },
-              child: const Text('Arrays')),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const WebView(
-                          url:
-                              "https://www.geeksforgeeks.org/string-data-structure/",
-                        )));
-              },
-              child: const Text('Strings')),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const WebView(
-                          url:
-                              "https://www.geeksforgeeks.org/binary-search/",
-                        )));
-              },
-              child: const Text('Binary Search'))
-        ],
-      ),
-    );
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: FloatingActionButton(
+            backgroundColor: Colors.amber,
+            foregroundColor: Colors.black,
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const WebView(
+                        url:
+                            "https://practice.geeksforgeeks.org/problem-of-the-day",
+                      )));
+            },
+            child: const Text('POTD'),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const WebView(
+                            url:
+                                "https://www.geeksforgeeks.org/array-data-structure/",
+                          )));
+                },
+                child: const Text('Arrays')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const WebView(
+                            url:
+                                "https://www.geeksforgeeks.org/string-data-structure/",
+                          )));
+                },
+                child: const Text('Strings')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const WebView(
+                            url: "https://www.geeksforgeeks.org/binary-search/",
+                          )));
+                },
+                child: const Text('Binary Search')),
+          ],
+        ));
   }
 }

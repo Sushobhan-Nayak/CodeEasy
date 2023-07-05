@@ -11,13 +11,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  void loginMessage() {
+    const snackBar = SnackBar(
+      
+      content: Text('Login Successful'),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-              fit: BoxFit.cover,
+                fit: BoxFit.cover,
                 image: AssetImage('assets/images/splash.jpeg'))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -27,22 +35,22 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.fromLTRB(0, 150.0, 0, 0),
               child: Center(
                   child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.black,
-                    child: const Text('Hey there \nWelcome back',
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black,
+                child: const Text('Hey there \nWelcome back',
                     textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 35,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)),
-                  )),
+                    style: TextStyle(
+                        fontSize: 35,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+              )),
             ),
             const SizedBox(height: 107),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width*0.95,
+                  width: MediaQuery.of(context).size.width * 0.95,
                   height: 65,
                   child: SignInButton(
                     Buttons.Google,
@@ -54,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           listen: false);
                       provider.googleLogin();
+                      loginMessage();
                     },
                   ),
                 ),

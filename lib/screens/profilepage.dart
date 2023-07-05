@@ -12,6 +12,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  logoutMessage() {
+    const snackBar = SnackBar(
+      content: Text('Logout Successful. Login Again'),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
@@ -76,14 +83,20 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: Colors.black,
                 thickness: 0.5,
               ),
-              const SizedBox( 
+              const SizedBox(
                 height: 80,
               ),
-              ElevatedButton(onPressed: (){
-                final provider = Provider.of<GoogleSignInProvider>(context,
-                          listen: false);
-                      provider.logout();
-              }, child: const Text('Logout',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),))
+              ElevatedButton(
+                  onPressed: () {
+                    final provider = Provider.of<GoogleSignInProvider>(context,
+                        listen: false);
+                    provider.logout();
+                    logoutMessage();
+                  },
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ))
             ],
           ),
         ),
