@@ -27,38 +27,43 @@ class _ArticleScreenState extends State<ArticleScreen> {
             child: const Text('POTD'),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WebView(
-                            url:
-                                "https://www.geeksforgeeks.org/array-data-structure/",
-                          )));
-                },
-                child: const Text('Arrays')),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WebView(
-                            url:
-                                "https://www.geeksforgeeks.org/string-data-structure/",
-                          )));
-                },
-                child: const Text('Strings')),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WebView(
-                            url: "https://www.geeksforgeeks.org/binary-search/",
-                          )));
-                },
-                child: const Text('Binary Search')),
-          ],
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const WebView(
+                                url:
+                                    "https://www.geeksforgeeks.org/array-data-structure/",
+                              )));
+                    },
+                    child: const Text('Arrays')),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const WebView(
+                                url:
+                                    "https://www.geeksforgeeks.org/string-data-structure/",
+                              )));
+                    },
+                    child: const Text('Strings')),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const WebView(
+                                url:
+                                    "https://www.geeksforgeeks.org/binary-search/",
+                              )));
+                    },
+                    child: const Text('Binary Search')),
+              ],
+            ),
+          ),
         ));
   }
 }

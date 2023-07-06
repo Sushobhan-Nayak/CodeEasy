@@ -13,6 +13,8 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   logoutMessage() {
+    const CircularProgressIndicator(
+    );
     const snackBar = SnackBar(
       content: Text('Logout Successful. Login Again'),
     );

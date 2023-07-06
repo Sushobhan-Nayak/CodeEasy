@@ -26,7 +26,7 @@ class _WebViewState extends State<WebView> {
           webViewController!.reload();
         },
         options: PullToRefreshOptions(
-            color: Colors.amber, backgroundColor: Colors.black));
+            color: Colors.black, backgroundColor: Colors.white));
   }
 
   @override
