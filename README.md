@@ -1,20 +1,16 @@
-# HelloWorld Quiz Game
-HelloWorld is a quiz game for coding and data structures and algorithms (DSA) enthusiasts. This interactive platform allows users to test their knowledge by attempting topic-wise quizzes and provides informative articles for further learning. Whether you are a beginner or an experienced programmer, HelloWorld offers a fun and challenging environment to enhance your coding skills.
+# hello_world
 
-# Features
-## Topicwise Quizzes: 
-Test your coding and DSA skills by attempting topic-wise quizzes. Choose from various topics, including data structures, algorithms, programming languages, and more.
+A new Flutter project.
 
-## Multiple Quiz Modes: 
-HelloWorld offers different quiz modes to suit your preferences. Enjoy a timed challenge to test your speed or take a simple untimed quiz to focus on accuracy.
+## Getting Started
 
-## Detailed Explanations: 
-Receive detailed explanations for quiz answers, helping you understand the concepts better and learn from your mistakes.
+This project is a starting point for a Flutter application.
 
-## Leaderboard: 
-Compare your scores with other users on the leaderboard. Compete with friends or challenge yourself to achieve the highest ranking.
+A few resources to get you started if this is your first Flutter project:
 
-## Informative Articles: 
-Read insightful articles written by coding experts to expand your knowledge of various programming concepts, best practices, and industry trends.
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-### Start your coding journey today with HelloWorld and challenge yourself to become a better programmer. Have fun and happy coding!
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
