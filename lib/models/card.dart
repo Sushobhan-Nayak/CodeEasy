@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/quiz_view/quiz_screen.dart';
+import 'package:hello_world/quiz_view/question_list.dart';
 
 class CardScreen extends StatefulWidget {
   final String topic;
@@ -21,7 +21,8 @@ class _CardScreenState extends State<CardScreen> {
               leading: const Icon(Icons.quiz),
               title: Text(
                 widget.topic,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
             Row(
@@ -30,11 +31,14 @@ class _CardScreenState extends State<CardScreen> {
                 OutlinedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const QuizScreen()));
+                          builder: (context) => QuestionList(
+                                topic: widget.topic,
+                              )));
                     },
                     child: const Text('START QUIZ'))
               ],
-            ),],
+            ),
+          ],
         ),
       ),
     );

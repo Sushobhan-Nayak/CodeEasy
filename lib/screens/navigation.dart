@@ -12,7 +12,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  @override
+  // @override
   int index = 0;
   final screens = [
     const HomeScreen(),

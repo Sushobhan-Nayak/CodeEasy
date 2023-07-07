@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer';
 
 class GoogleSignInProvider extends ChangeNotifier {
-  
   final googleSignIn = GoogleSignIn();
 
   GoogleSignInAccount? _user;
@@ -21,8 +21,14 @@ class GoogleSignInProvider extends ChangeNotifier {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    try {
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      // print(e.toString());
+      log(e.toString());
+      log('message');
+      log('deepanshu');
+    }
 
     notifyListeners();
   }

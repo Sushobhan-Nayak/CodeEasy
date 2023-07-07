@@ -13,7 +13,7 @@ class _WebViewState extends State<WebView> {
   InAppWebViewController? webViewController;
   PullToRefreshController? refreshController;
 
-  late var url;
+  late Uri url;
   var searchUrl = "https://www.google.com/";
   double progress = 0;
   var urlController = TextEditingController();

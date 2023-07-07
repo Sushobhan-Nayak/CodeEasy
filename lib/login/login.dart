@@ -11,7 +11,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,16 +43,20 @@ class _LoginPageState extends State<LoginPage> {
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   height: 50,
                   child: SignInButton(
                     buttonType: ButtonType.google,
                     buttonSize: ButtonSize.medium,
-                    onPressed: () {
+                    onPressed: () async {
                       final provider = Provider.of<GoogleSignInProvider>(
-                          context,
-                          listen: false);
-                      provider.googleLogin();
+                        context,
+                        listen: false,
+                      );
+                      await provider.googleLogin();
                     },
                   ),
                 ),

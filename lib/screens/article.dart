@@ -18,11 +18,14 @@ class _ArticleScreenState extends State<ArticleScreen> {
             backgroundColor: Colors.amber,
             foregroundColor: Colors.black,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
+              Navigator.of(context).push(
+                MaterialPageRoute(
                   builder: (context) => const WebView(
-                        url:
-                            "https://practice.geeksforgeeks.org/problem-of-the-day",
-                      )));
+                    url:
+                        "https://practice.geeksforgeeks.org/problem-of-the-day",
+                  ),
+                ),
+              );
             },
             child: const Text('POTD'),
           ),
