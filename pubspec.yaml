@@ -46,6 +46,7 @@ dependencies:
   sign_button: ^2.0.4
   cloud_firestore: ^4.8.2
   percent_indicator: ^4.2.3
+  stacked_card_carousel: ^0.0.4
 
 dev_dependencies:
   flutter_test:

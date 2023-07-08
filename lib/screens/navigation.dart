@@ -49,11 +49,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
           child: CurvedNavigationBar(
             color: Colors.black,
             height: 60,
-            buttonBackgroundColor: Colors.cyan,
+            buttonBackgroundColor: Colors.black,
             index: index,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 500),
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.grey,
             items: items,
             onTap: (index) => setState(() => this.index = index),
           ),
