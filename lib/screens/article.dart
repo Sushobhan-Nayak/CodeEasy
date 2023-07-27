@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/models/web_view.dart';
-import 'package:hello_world/screens/articlecard.dart';
+import 'package:hello_world/models/articlecard.dart';
 import 'package:stacked_card_carousel/stacked_card_carousel.dart';
 
 class ArticleScreen extends StatefulWidget {
@@ -14,10 +14,13 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(8.0),
           child: FloatingActionButton(
-            backgroundColor: Colors.red,
+            shape: const CircleBorder(),
+            backgroundColor:
+                Theme.of(context).floatingActionButtonTheme.backgroundColor,
             foregroundColor: Colors.white,
             onPressed: () {
               Navigator.of(context).push(
@@ -32,18 +35,18 @@ class _ArticleScreenState extends State<ArticleScreen> {
             child: const Text('POTD'),
           ),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+        floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         body: StackedCardCarousel(
           type: StackedCardCarouselType.cardsStack,
-          initialOffset: 5,
+          initialOffset: 0,
           spaceBetweenItems: 425,
           items: const [
             ArticleCard(
                 url: "https://www.geeksforgeeks.org/array-data-structure/",
-                title: 'Arrays'),
+                title: 'Array'),
             ArticleCard(
                 url: "https://www.geeksforgeeks.org/string-data-structure/",
-                title: 'Strings'),
+                title: 'String'),
             ArticleCard(
                 url: "https:www.geeksforgeeks.org/binary-search/",
                 title: 'Binary Search'),
@@ -55,6 +58,15 @@ class _ArticleScreenState extends State<ArticleScreen> {
                 url:
                     "https://www.geeksforgeeks.org/data-structures/linked-list/",
                 title: 'Linked List'),
+            ArticleCard(
+                url: "https://www.geeksforgeeks.org/stack-data-structure/",
+                title: 'Stack'),
+            ArticleCard(
+                url: "https://www.geeksforgeeks.org/queue-data-structure/",
+                title: 'Queue'),
+            ArticleCard(
+                url: "https://www.geeksforgeeks.org/hashing-data-structure/",
+                title: 'Hashing'),
             ArticleCard(
                 url: "https://www.geeksforgeeks.org/tree-data-structure/",
                 title: 'Trees')

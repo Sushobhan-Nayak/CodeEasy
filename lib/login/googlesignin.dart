@@ -1,7 +1,9 @@
+import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'dart:developer';
+
 
 class GoogleSignInProvider extends ChangeNotifier {
   final googleSignIn = GoogleSignIn();
@@ -23,14 +25,24 @@ class GoogleSignInProvider extends ChangeNotifier {
     );
     try {
       await FirebaseAuth.instance.signInWithCredential(credential);
+      await saveUser(googleUser);
     } catch (e) {
-      // print(e.toString());
-      log(e.toString());
-      log('message');
-      log('deepanshu');
+      null;
     }
 
     notifyListeners();
+  }
+
+  Future<void> saveUser(GoogleSignInAccount googleUser) async {
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(googleUser.displayName)
+        .set({
+      "email": googleUser.email,
+      "name": googleUser.displayName,
+      "profilepic": googleUser.photoUrl,
+      "level": 0,
+    });
   }
 
   Future logout() async {

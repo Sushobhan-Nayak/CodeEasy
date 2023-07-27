@@ -52,11 +52,18 @@ class _LoginPageState extends State<LoginPage> {
                     buttonType: ButtonType.google,
                     buttonSize: ButtonSize.medium,
                     onPressed: () async {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          });
                       final provider = Provider.of<GoogleSignInProvider>(
                         context,
                         listen: false,
                       );
                       await provider.googleLogin();
+                      Navigator.of(context).pop();
                     },
                   ),
                 ),

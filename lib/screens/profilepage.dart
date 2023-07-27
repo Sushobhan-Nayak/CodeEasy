@@ -13,9 +13,8 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   logoutMessage() {
-    const CircularProgressIndicator(
-    );
     const snackBar = SnackBar(
+      duration: Duration(seconds: 3),
       content: Text('Logout Successful. Login Again'),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -26,6 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return const SizedBox.shrink();
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -34,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               AvatarGlow(
                 curve: Curves.easeInOutCubicEmphasized,
-                glowColor: Colors.orange,
+                glowColor: Colors.yellow,
                 endRadius: 75.0,
                 duration: const Duration(milliseconds: 2000),
                 repeat: true,
@@ -55,8 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         if (loadingProgress == null) {
                           return child;
                         } else {
-                          return const Center(
-                              child: CircularProgressIndicator());
+                          return Image.asset('assets/images/avatar.png');
                         }
                       },
                     ),
@@ -82,22 +81,35 @@ class _ProfilePageState extends State<ProfilePage> {
                 style: TextStyle(fontSize: 20),
               ),
               const Divider(
-                color: Colors.black,
+                color: Colors.amber,
                 thickness: 0.5,
               ),
               const SizedBox(
                 height: 80,
               ),
               ElevatedButton(
-                  onPressed: () {
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(
+                          Theme.of(context).colorScheme.secondary)),
+                  onPressed: () async {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        });
                     final provider = Provider.of<GoogleSignInProvider>(context,
                         listen: false);
-                    provider.logout();
+                    await provider.logout();
+                    Navigator.of(context).pop();
                     logoutMessage();
                   },
-                  child: const Text(
+                  child: Text(
                     'Logout',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Theme.of(context).colorScheme.tertiary),
                   ))
             ],
           ),

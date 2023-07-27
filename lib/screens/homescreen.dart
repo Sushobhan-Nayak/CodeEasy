@@ -12,9 +12,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: ListView(
         children: const [
-          CardScreen(topic: 'ARRAYS'),
+          CardScreen(
+            topic: 'ARRAYS',
+          ),
           CardScreen(topic: 'STRINGS'),
           CardScreen(topic: 'BINARY SEARCH'),
           CardScreen(topic: 'POINTERS'),
