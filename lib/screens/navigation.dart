@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/services.dart';
 import 'package:hello_world/screens/article.dart';
 import 'package:hello_world/screens/homescreen.dart';
 import 'package:hello_world/screens/profilepage.dart';
@@ -13,6 +14,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  
   int index = 0;
   final screens = [
     const HomeScreen(),
@@ -43,6 +45,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             actions: const [
               ChangeThemeButton(),
             ],
+            systemOverlayStyle:  SystemUiOverlayStyle(statusBarColor: Theme.of(context).appBarTheme.backgroundColor),
             centerTitle: true,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             title: const Text('HelloWorld')),
