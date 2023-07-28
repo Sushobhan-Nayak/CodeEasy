@@ -15,12 +15,7 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   int index = 0;
-  final screens = [
-    const HomeScreen(),
-    const ArticleScreen(),
-    const ProfilePage()
-  ];
-  bool isDark = false;
+  final PageController _pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
@@ -49,11 +44,19 @@ class _NavigationScreenState extends State<NavigationScreen> {
             centerTitle: true,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             title: const Text('HelloWorld')),
-        body: screens[index],
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (newIndex) {
+            setState(() {
+              index = newIndex;
+            });
+          },
+          children: const [HomeScreen(), ArticleScreen(), ProfilePage()],
+        ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-              iconTheme: IconThemeData(
-                  color: Theme.of(context).colorScheme.background)),
+              iconTheme:
+                  IconThemeData(color: Theme.of(context).colorScheme.outline)),
           child: CurvedNavigationBar(
             color: Theme.of(context).focusColor,
             height: 60,

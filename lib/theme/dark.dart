@@ -9,6 +9,7 @@ ThemeData darktheme = ThemeData(
       backgroundColor: Colors.grey[700], foregroundColor: Colors.amber[700]),
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
+      outline: Colors.white,
       background: Colors.black,
       primary: Color.fromARGB(255, 62, 10, 6),
       secondary: Color.fromARGB(255, 4, 31, 65),

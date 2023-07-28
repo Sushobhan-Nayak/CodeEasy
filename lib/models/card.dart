@@ -24,9 +24,10 @@ class _CardScreenState extends State<CardScreen> {
               ),
               title: Text(
                 widget.topic,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
+                  color: Theme.of(context).colorScheme.outline
                 ),
               ),
             ),

@@ -82,7 +82,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const Divider(
                 color: Colors.amber,
-                thickness: 0.5,
+                thickness: 0.80,
               ),
               const SizedBox(
                 height: 80,
