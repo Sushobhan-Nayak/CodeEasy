@@ -14,7 +14,6 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  
   int index = 0;
   final screens = [
     const HomeScreen(),
@@ -45,7 +44,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
             actions: const [
               ChangeThemeButton(),
             ],
-            systemOverlayStyle:  SystemUiOverlayStyle(statusBarColor: Theme.of(context).appBarTheme.backgroundColor),
+            systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: Theme.of(context).appBarTheme.backgroundColor),
             centerTitle: true,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             title: const Text('HelloWorld')),
@@ -53,11 +53,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
               iconTheme: IconThemeData(
-                  color: Theme.of(context).appBarTheme.foregroundColor)),
+                  color: Theme.of(context).colorScheme.background)),
           child: CurvedNavigationBar(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).focusColor,
             height: 60,
-            buttonBackgroundColor: Theme.of(context).colorScheme.background,
+            buttonBackgroundColor:
+                Theme.of(context).navigationBarTheme.backgroundColor,
             index: index,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 500),

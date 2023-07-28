@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 ThemeData darktheme = ThemeData(
+  focusColor: Colors.grey[700],
+  hoverColor: Colors.amber[700],
   floatingActionButtonTheme:
       FloatingActionButtonThemeData(backgroundColor: Colors.grey[700]),
-  appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.black, foregroundColor: Colors.blue),
+  appBarTheme: AppBarTheme(
+      backgroundColor: Colors.grey[700], foregroundColor: Colors.amber[700]),
   brightness: Brightness.dark,
   colorScheme: const ColorScheme.dark(
       background: Colors.black,

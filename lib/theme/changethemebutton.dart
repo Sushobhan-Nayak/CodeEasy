@@ -14,12 +14,10 @@ class ChangeThemeButton extends StatelessWidget {
       value: themeProvider.isDarkMode,
       onChanged: (value) {
         showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(child: CircularProgressIndicator(
-            
-          ));
-        });
+            context: context,
+            builder: (context) {
+              return const Center(child: CircularProgressIndicator());
+            });
         final provider = Provider.of<ThemeProvider>(context, listen: false);
         provider.toggleTheme(value);
         Navigator.of(context).pop();

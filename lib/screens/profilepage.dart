@@ -34,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               AvatarGlow(
                 curve: Curves.easeInOutCubicEmphasized,
-                glowColor: Colors.yellow,
+                glowColor: Theme.of(context).hoverColor,
                 endRadius: 75.0,
                 duration: const Duration(milliseconds: 2000),
                 repeat: true,
