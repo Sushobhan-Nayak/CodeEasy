@@ -1,5 +1,5 @@
-# HelloWorld Quiz Game
-HelloWorld is a quiz game for coding and data structures and algorithms (DSA) enthusiasts. This interactive platform allows users to test their knowledge by attempting topic-wise quizzes and provides informative articles for further learning. Whether you are a beginner or an experienced programmer, HelloWorld offers a fun and challenging environment to enhance your coding skills.
+# CodeEasy Quiz Game
+CodeEasy is a quiz game for coding and data structures and algorithms (DSA) enthusiasts. This interactive platform allows users to test their knowledge by attempting topic-wise quizzes and provides informative articles for further learning. Whether you are a beginner or an experienced programmer, HelloWorld offers a fun and challenging environment to enhance your coding skills.
 
 # Features
 ## Topicwise Quizzes: 
