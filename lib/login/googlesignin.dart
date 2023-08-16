@@ -42,6 +42,7 @@ class GoogleSignInProvider extends ChangeNotifier {
       "name": googleUser.displayName,
       "profilepic": googleUser.photoUrl,
       "level": 0,
+      "leetcode-profile": "na"
     });
   }
 

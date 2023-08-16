@@ -41,7 +41,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 showTwoGlows: true,
                 repeatPauseDuration: const Duration(milliseconds: 100),
                 child: Material(
-                  // Replace this child with your own
                   elevation: 10.0,
                   shape: const CircleBorder(),
                   child: ClipOval(
@@ -80,8 +79,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 'Branch:',
                 style: TextStyle(fontSize: 20),
               ),
-              const Divider(
-                color: Colors.amber,
+              ElevatedButton(
+                  onPressed: () {}, child: const Text("Edit Profile")),
+              Divider(
+                color: Theme.of(context).focusColor,
                 thickness: 0.80,
               ),
               const SizedBox(

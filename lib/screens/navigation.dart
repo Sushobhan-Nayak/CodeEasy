@@ -56,7 +56,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
               iconTheme:
-                  IconThemeData(color: Theme.of(context).colorScheme.outline)),
+                  const IconThemeData(color: Colors.white)),
           child: CurvedNavigationBar(
             color: Theme.of(context).focusColor,
             height: 60,
@@ -67,7 +67,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
             animationDuration: const Duration(milliseconds: 500),
             backgroundColor: Colors.transparent,
             items: items,
-            onTap: (index) => setState(() => this.index = index),
+            onTap: (index) {
+              _pageController.animateToPage(index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease);
+            },
           ),
         ));
   }
