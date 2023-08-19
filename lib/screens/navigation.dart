@@ -3,8 +3,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/services.dart';
 import 'package:hello_world/screens/article.dart';
 import 'package:hello_world/screens/homescreen.dart';
+import 'package:hello_world/screens/quizscreen.dart';
 import 'package:hello_world/screens/profilepage.dart';
 import 'package:hello_world/theme/changethemebutton.dart';
+import 'package:hello_world/models/exitpopup.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -32,47 +34,50 @@ class _NavigationScreenState extends State<NavigationScreen> {
         size: 30,
       )
     ];
-    return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        extendBody: true,
-        appBar: AppBar(
-            actions: const [
-              ChangeThemeButton(),
-            ],
-            systemOverlayStyle: SystemUiOverlayStyle(
-                statusBarColor: Theme.of(context).appBarTheme.backgroundColor),
-            centerTitle: true,
-            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-            title: const Text('HelloWorld')),
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: (newIndex) {
-            setState(() {
-              index = newIndex;
-            });
-          },
-          children: const [HomeScreen(), ArticleScreen(), ProfilePage()],
-        ),
-        bottomNavigationBar: Theme(
-          data: Theme.of(context).copyWith(
-              iconTheme:
-                  const IconThemeData(color: Colors.white)),
-          child: CurvedNavigationBar(
-            color: Theme.of(context).focusColor,
-            height: 60,
-            buttonBackgroundColor:
-                Theme.of(context).navigationBarTheme.backgroundColor,
-            index: index,
-            animationCurve: Curves.easeInOut,
-            animationDuration: const Duration(milliseconds: 500),
-            backgroundColor: Colors.transparent,
-            items: items,
-            onTap: (index) {
-              _pageController.animateToPage(index,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease);
+    return WillPopScope(
+      onWillPop: () => showExitPopup(context),
+      child: Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          extendBody: true,
+          appBar: AppBar(
+              actions: const [
+                ChangeThemeButton(),
+              ],
+              systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor:
+                      Theme.of(context).appBarTheme.backgroundColor),
+              centerTitle: true,
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+              title: const Text('HelloWorld')),
+          body: PageView(
+            controller: _pageController,
+            onPageChanged: (newIndex) {
+              setState(() {
+                index = newIndex;
+              });
             },
+            children: const [HomeScreen(), ArticleScreen(), ProfilePage()],
           ),
-        ));
+          bottomNavigationBar: Theme(
+            data: Theme.of(context)
+                .copyWith(iconTheme: const IconThemeData(color: Colors.white)),
+            child: CurvedNavigationBar(
+              color: Theme.of(context).focusColor,
+              height: 60,
+              buttonBackgroundColor:
+                  Theme.of(context).navigationBarTheme.backgroundColor,
+              index: index,
+              animationCurve: Curves.easeInOut,
+              animationDuration: const Duration(milliseconds: 500),
+              backgroundColor: Colors.transparent,
+              items: items,
+              onTap: (index) {
+                _pageController.animateToPage(index,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease);
+              },
+            ),
+          )),
+    );
   }
 }
