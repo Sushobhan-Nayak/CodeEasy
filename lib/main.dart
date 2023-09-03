@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hello_world/firebase_options.dart';
 import 'package:hello_world/login/googlesignin.dart';
 import 'package:hello_world/login/login.dart';
 import 'package:hello_world/screens/navigation.dart';
@@ -12,7 +13,9 @@ import 'package:flutter/services.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // SystemChrome.setEnabledSystemUIMode(
   //   SystemUiMode.immersiveSticky,
   // );
